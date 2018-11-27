@@ -90,7 +90,22 @@ Javascript provides us with a number of native methods that allow us to interact
 > This is a great exercise for practicing your "Google Fu"! If you need a starting point, check out [MDN's documentation page on arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).
 
 ```js
-// Your answers go here.
+/*
+Qn: Adding an element to the back of an array
+Ans: array.push("element");
+Qn: Removing an element from the back of an array
+Ans: array.pop("element");
+Qn: Adding an element to the front of an array
+Ans: array.unshift("element");
+Qn: Removing an element from the front of an array
+Ans: array.shift();
+Qn: Concatenate all the elements in an array into a string
+Ans: array.join();
+Qn: var str = "How are you doing today?"
+var res = str.split(separator - e.g. " "),limit (e.g. 3) )
+
+*/
+
 ```
 
 What will the contents of the below arrays be after the code samples are executed? Come up with an answer yourself before testing it out in the console.
@@ -103,7 +118,7 @@ numbers.unshift(3)
 ```
 
 ```text
-Your answer goes here.
+var numbers = [3, 2, 4, 6, 10]
 ```
 
 What is the return value of the below code sample? Come up with an answer yourself before testing it out in the console.
@@ -115,7 +130,7 @@ moreMorse.split(" ")
 ```
 
 ```text
-Your answer goes here.
+moreMorse = ["dot", "dash", "pause", "dash", "dot", ]
 ```
 
 What will the contents of the below array be after the below code sample is executed? Come up with an answer yourself before testing it out in the console.
@@ -132,8 +147,11 @@ bands[1][3] = "Ringo"
 ```
 
 ```text
-Your answer goes here.
+0: (4) ["Mick", "Keith", "Ronnie", "Charlie"]
+1: (4) ["Paul", "John", "George", "Ringo"]
 ```
+Look up and use the `delete` keyword with phoneBook to delete a record.
+
 ### Objects
 ```
 var phoneBook = {
@@ -168,14 +186,19 @@ var phoneBook = {
 
 Write a line of code that accesses the phone number for Pam.
 
+//console.log(phoneBook["Pam"]);
+
 Write a line of code that creates a new record for John at 435-567-1223.
 
+//phoneBook.push({"John":"435-567-1223"}); --> does not work for key:value in array
+//phoneBook.John = "435-567-1223"; -- > dot notation or bracket notation
+
 Write your own object and console.log that value.
+//phoneBook["Wonky"] = "123-456-7890";
+//console.log(phoneBook["Wonky"]);
 
 Find out what `Object.keys(phoneBook)` does.
-
-Look up and use the `delete` keyword with phoneBook to delete a record.
-
+//It displays the keys in the array.
 
 ## Booleans & Comparison Operators
 
@@ -194,30 +217,30 @@ Fill out the truth tables below for `&&` (and), `||` (or) and one that uses mult
 
 | a | b | a AND b |
 | --- | --- | --- |
-| true | true | ? |
-| true | false | ? |
-| false | true | ? |
-| false | false | ? |
+| true | true | True |
+| true | false | False |
+| false | true |False |
+| false | false | False |
 
 |a|b|a OR b|
 |---|---|---|
-|true|true|?|
-|true|false|?|
-|false|true|?|
-|false|false|?|
+|true|true|True|
+|true|false|True|
+|false|true|True|
+|false|false|False|
 
 |a|b|a `!=` b|
 |---|---|---|
-|3|3|?|
-|1|5|?|
-|2|"2"|?|
+|3|3|False|
+|1|5|True|
+|2|"2"|False|
 
 |a|b|!a AND (a OR b)|
 |---|---|---|
-|true|true|?|
-|true|false|?|
-|false|true|?|
-|false|false|?|
+|true|true|false|
+|true|false|false|
+|false|true|true|
+|false|false|true|
 
 ## Conditionals
 
@@ -228,7 +251,20 @@ You're a bouncer at a bar. Given an `age` variable, create a conditional that sa
 * If a patron is older than 75, print out `"Are you sure you want to be here?"`.
 
 ```js
-// Your answer goes here.
+/**
+
+var age = 25;
+
+if (age > 75) {
+    console.log("Are you sure you want to be here?");
+} else if (age >= 18 && age <= 21) {
+    console.log("Come on in (but no drinking)!");
+} else if (age < 18) {
+    console.log("You are too young to be in here!");
+} else {
+    console.log("Come on in.");
+};
+**/
 ```
 
 #### Bonus
@@ -238,3 +274,22 @@ Bar patrons must have an ID if the bouncer is even going to consider what age th
 - If the patron does not have an ID, the bouncer will tell them `"No ID, no entry."`
 
 > Hint: Whether the patron has an ID or not can be stored in a `hasId` variable. What do you think the stored data type should be?
+
+/**
+
+var hasId = true;
+var age = 25;
+
+if (hasId === true) {
+    if (age > 75) {
+        console.log("Are you sure you want to be here?");
+    } else if (age >= 18 && age <= 21) {
+        console.log("Come on in (but no drinking)!");
+    } else if (age < 18) {
+        console.log("You are too young to be in here!");
+    } else {
+        console.log("Come on in.");
+    }
+} else {
+    console.log("Come back with your ID");
+}
